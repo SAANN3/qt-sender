@@ -26,7 +26,7 @@ Window {
     }
     id:mainwin
     width: 888
-    height: 7770
+    height: 777
     visible: true
     title: "1"
     color:Material.background
