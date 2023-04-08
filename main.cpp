@@ -5,15 +5,14 @@
 #include <QQuickStyle>
 #include <QQmlContext>
 #include <QDir>
-#include <QStandardPaths>и
+#include <QStandardPaths>
 int main(int argc, char *argv[])
 {
-    QDir::setCurrent(QStandardPaths::writableLocation(QStandardPaths::DownloadLocation));
-    qDebug() << QDir::currentPath();
     QGuiApplication app(argc, argv);
     QThread::currentThread()->setPriority(QThread::HighPriority);
     QQuickStyle::setStyle("Material");
     QQmlApplicationEngine engine;
+
     QQmlContext* context = engine.rootContext();
     Network network;
     context->setContextProperty("net",&network);

@@ -2,8 +2,9 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
 import Qt.labs.settings 1.0
-
 Window {
+    flags: Qt.Window | Qt.MaximizeUsingFullscreenGeometryHint
+    visibility: Window.Maximized
     Settings{
         id:settings
         category:"main_window"
@@ -12,6 +13,9 @@ Window {
         property alias y:mainwin.y
         property alias width: mainwin.width
         property alias height: mainwin.height
+        property alias textip:storeip.text
+        property alias textkey:store_key.text
+        property alias textport:storeport.text
     }
     Settings_win{
         id:tmp
@@ -20,10 +24,9 @@ Window {
             script:tmp.destroy()
         }
     }
-
     id:mainwin
-    width: 640
-    height: 480
+    width: 888
+    height: 7770
     visible: true
     title: "1"
     color:Material.background

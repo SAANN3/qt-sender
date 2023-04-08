@@ -1,13 +1,18 @@
 QT += quick
 QT += network
 QT += quickcontrols2
+CONFIG+=qtquickcompiler
 SOURCES += \
         Filesforsend_class.cpp \
         Network.cpp \
         main.cpp \
         thread_for_network.cpp
 
-resources.files = \ main.qml
+resources.files += \
+                main.qml\
+                DialogWin.qml \
+                Filesforsend.qml \
+                Settings_win.qml
 resources.prefix = /$${TARGET}
 RESOURCES += resources
 RESOURCES += qtquickcontrols2.conf
@@ -28,8 +33,17 @@ HEADERS += \
     thread_for_network.h
 
 DISTFILES += \
-    DialogWin.qml \
-    Dumb_thing.java \
-    Filesforsend.qml \
-    Settings_win.qml \
+    android/AndroidManifest.xml \
+    android/build.gradle \
+    android/gradle.properties \
+    android/gradle/wrapper/gradle-wrapper.jar \
+    android/gradle/wrapper/gradle-wrapper.properties \
+    android/gradlew \
+    android/gradlew.bat \
+    android/res/values/libs.xml \
     qtquickcontrols2.conf
+
+contains(ANDROID_TARGET_ARCH,x86) {
+    ANDROID_PACKAGE_SOURCE_DIR = \
+        $$PWD/android
+}

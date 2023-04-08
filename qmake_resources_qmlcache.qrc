@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<RCC version="1.0">
+    <qresource prefix="/">
+        <file alias="main.qml">main.qml</file>
+        <file alias="DialogWin.qml">DialogWin.qml</file>
+        <file alias="Filesforsend.qml">Filesforsend.qml</file>
+        <file alias="Settings_win.qml">Settings_win.qml</file>
+        <file alias="resources.prefix">resources.prefix</file>
+        <file alias="=">=</file>
+        <file alias="sender">../../../../sender</file>
+    </qresource>
+</RCC>
