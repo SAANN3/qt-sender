@@ -3,8 +3,6 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 import Qt.labs.settings 1.0
 Window {
-    flags: Qt.Window | Qt.MaximizeUsingFullscreenGeometryHint
-    visibility: Window.Maximized
     Settings{
         id:settings
         category:"main_window"
