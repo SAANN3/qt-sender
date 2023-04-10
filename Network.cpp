@@ -13,17 +13,26 @@
 Network::Network()
     {
     //get local ip
+    #ifdef Q_OS_WINDOWS
+        const QHostAddress &localhost = QHostAddress(QHostAddress::LocalHost);
+        for (const QHostAddress &myaddress: QNetworkInterface::allAddresses()) {
+            if (myaddress.protocol() == QAbstractSocket::IPv4Protocol && myaddress != localhost)
+                address = myaddress.toString();
+        }
+    #else
     foreach (const QNetworkInterface &netInterface, QNetworkInterface::allInterfaces()) {
         QNetworkInterface::InterfaceFlags flags = netInterface.flags();
         if( (bool)(flags & QNetworkInterface::IsRunning) && !(bool)(flags & QNetworkInterface::IsLoopBack)){
             foreach (const QNetworkAddressEntry &myaddress, netInterface.addressEntries()) {
                 if(myaddress.ip().protocol() == QAbstractSocket::IPv4Protocol)
                     address =  myaddress.ip().toString();break;
-                qDebug() << address;
+
                 break;
             }
         }
     }
+    #endif
+    qDebug() << address << "address";
 
     // listen port
     int tmp_port = 35440;
